@@ -41,7 +41,10 @@ function App(props){
 				removes from dom when left the dom
 			- appear
 				gives new classnamees on initial load:
-
+			- enter
+			- exit
+				These can be FALSE (in case of dynamic transition toggling)
+				this will not use the css assocated with the enter/exit classes
 		
 			CLASSNAMES:
 				ballon:
