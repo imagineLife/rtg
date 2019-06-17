@@ -37,6 +37,27 @@ function App(props){
 
   const toggle = () => setShowBalloon(!showBalloon);
 
+  const toggleSelectedMenuItem =() => {
+  	console.log('tiggling selecte menu item');
+  	setListItems([
+	  	{
+	  		txt: 'home',
+	  		highlighted: false
+	  	},
+	  	{
+	  		txt: 'profile',
+	  		highlighted: true
+	  	},
+	  	{
+	  		txt: 'favourites',
+	  		highlighted: false
+	  	},
+	  	{
+	  		txt: 'sign-out',
+	  		highlighted: false
+	  	}
+	])
+  }
     return (
       <div className="container">
         <button
@@ -85,8 +106,8 @@ function App(props){
         	appear
         	onEnter={() => console.log('onEnter')}
         	onEntering={() => console.log('onEntering')}
-        	onEntered={() => console.log('onEntered')}
-        	onExit={() => console.log('onExit')}
+        	onEntered={toggleSelectedMenuItem}
+        	onExit={toggleSelectedMenuItem}
         	onExiting={() => console.log('onExiting')}
         	onExited={() => console.log('onExited')}>
           <div className="menu">
