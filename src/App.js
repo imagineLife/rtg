@@ -10,42 +10,47 @@ import { CSSTransition } from 'react-transition-group';
 import cx from 'classnames';
 import './main.css';
 
-class App extends Component {
-  state = {
-    showBalloon: false,
-  };
+function App(props){
+  let [showBalloon, setShowBalloon] = React.useState(false)
 
-  toggle = () => {
-    this.setState(prevState => ({
-      showBalloon: !prevState.showBalloon,
-    }));
-  };
+  const toggle = () => setShowBalloon(!showBalloon);
 
-  render() {
     return (
       <div className="container">
         <button
           className={cx('toggler', {
-            'toggler--active': this.state.showBalloon,
+            'toggler--active': showBalloon,
           })}
-          onClick={this.toggle}
+          onClick={toggle}
         >
           Menu
         </button>
         {/*
     		-in is the condition, similar to 
-    			{this.state.shoBallon && ...}
-			-timeout is REQUIRED, in ms
-			-classnames is custom class
-			-unmountOnExit removes from dom when left the dom
+    			{showBallon && ...}
+			- timeout 
+				is REQUIRED, in ms
+			- classnames 
+				is custom class
+				allows interaction via css
+			- unmountOnExit 
+				removes from dom when left the dom
+			- appear
 		
 			CLASSNAMES:
-				ballon == simple appear/hide
-				ballon-appear == more 
-				balloon-ltr == left-to-right animation
+				ballon:
+					 simple appear/hide
+				ballon-appear:
+					 more 
+				balloon-ltr:
+					 left-to-right animation
+				balloon-show-init:
+					appears on load with a fade-in
+					without clcking the button
+
 		*/}
         <CSSTransition
-        	in={this.state.showBalloon}
+        	in={showBalloon}
         	timeout={1550}
         	classNames="ballon-ltr"
         	unmountOnExit>
@@ -60,7 +65,6 @@ class App extends Component {
         </CSSTransition>
       </div>
     );
-  }
 }
 
 export default App;
