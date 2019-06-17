@@ -91,6 +91,10 @@ body {
 			HERE can be the transition
 */
 
+/*
+	Balloon
+*/
+
 .ballon-enter{
 	opacity: 0
 }
@@ -109,22 +113,40 @@ body {
 	transition: opacity var(--timeout);
 }
 
-/*balloon-appear*/
+/*
+	balloon-appear
+*/
 
 .ballon-appear-enter{
-	opacity: 0
+	top: var(--menu-starting-top);
+	width: var(--toggler-width);
+	max-height: var(--toggler-height);
+	color: var(--fade-from-color);
+	background-color: var(--toggler-bg-color);
 }
 
 .ballon-appear-enter-active{
-	opacity: 1;
-	transition: opacity var(--timeout);
+	top: var(--menu-ending-top);
+	width: var(--menu-width);
+	max-height: var(--menu-max-height);
+	color: var(--fade-to-color);
+	background-color: var(--menu-bg-color);
+	transition: all var(--timeout);
 }
 
 .ballon-appear-exit{
-	opacity: 1;
+	top: var(--menu-ending-top);
+	width: var(--menu-width);
+	max-height: var(--menu-max-height);
+	color: var(--fade-to-color);
+	background-color: var(--menu-bg-color);
 }
 
 .ballon-appear-exit-active{
-	opacity: 0;
-	transition: opacity var(--timeout);
+	top: var(--menu-starting-top);
+	width: var(--toggler-width);
+	max-height: var(--toggler-height);
+	color: var(--fade-from-color);
+	background-color: var(--toggler-bg-color);
+	transition: all var(--timeout);
 }
