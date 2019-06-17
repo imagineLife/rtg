@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+
+/*
+	A component
+	allows CSSTransition to elements entering / exiting the dom
+*/
 import { CSSTransition } from 'react-transition-group';
 import cx from 'classnames';
 import './main.css';
@@ -26,7 +31,18 @@ class App extends Component {
         >
           Menu
         </button>
-        {this.state.showBalloon && (
+        {/*
+        		-in is the condition, similar to 
+        			{this.state.shoBallon && ...}
+				-timeout is REQUIRED, in ms
+				-classnames is custom class
+				-unmountOnExit removes from dom when left the dom
+			*/}
+        <CSSTransition
+        	in={this.state.showBalloon}
+        	timeout={350}
+        	classNames="ballon"
+        	unmountOnExit>
           <div className="menu">
             <ul className="list">
               <li className="list-item">Home</li>
@@ -35,7 +51,7 @@ class App extends Component {
               <li className="list-item">Sign out</li>
             </ul>
           </div>
-        )}
+        </CSSTransition>
       </div>
     );
   }
