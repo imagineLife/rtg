@@ -63,7 +63,13 @@ function App(props){
         	timeout={1550}
         	classNames="balloon-show-init"
         	unmountOnExit
-        	appear>
+        	appear
+        	onEnter={() => console.log('onEnter')}
+        	onEntering={() => console.log('onEntering')}
+        	onEntered={() => console.log('onEntered')}
+        	onExit={() => console.log('onExit')}
+        	onExiting={() => console.log('onExiting')}
+        	onExited={() => console.log('onExited')}>
           <div className="menu">
             <ul className="list">
               <li className="list-item">Home</li>
