@@ -33,16 +33,20 @@ class App extends Component {
           Menu
         </button>
         {/*
-        		-in is the condition, similar to 
-        			{this.state.shoBallon && ...}
-				-timeout is REQUIRED, in ms
-				-classnames is custom class
-				-unmountOnExit removes from dom when left the dom
-			*/}
+    		-in is the condition, similar to 
+    			{this.state.shoBallon && ...}
+			-timeout is REQUIRED, in ms
+			-classnames is custom class
+			-unmountOnExit removes from dom when left the dom
+		
+			CLASSNAMES:
+				ballon == simple appear/hide
+				ballon-appear == more 
+		*/}
         <CSSTransition
         	in={this.state.showBalloon}
-        	timeout={350}
-        	classNames="ballon"
+        	timeout={1550}
+        	classNames="ballon-appear"
         	unmountOnExit>
           <div className="menu">
             <ul className="list">
