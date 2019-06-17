@@ -76,6 +76,11 @@ body {
   padding: 5px 0;
 }
 
+.list-item--active{
+	color: darkgreen;
+	transition: 250ms;
+}
+
 /*
 	TRANSITION STYLES
 	CSS transitions gives us custom classes to work with...
