@@ -75,3 +75,34 @@ body {
 .list-item {
   padding: 5px 0;
 }
+
+/*
+	TRANSITION STYLES
+	CSS transitions gives us custom classes to work with...
+		-enter
+			fires immediately upon entering the dom
+		-enter-active
+			fires on next tick after enter
+			HERE can be the transition
+		-exit
+			when stateful value turns false
+		-exit-active
+			fires on next tick after exit
+			HERE can be the transition
+*/
+
+.ballon-enter{
+
+}
+
+.ballon-enter-active{
+
+}
+
+.ballon-exit{
+
+}
+
+.ballon-exit-active{
+
+}
