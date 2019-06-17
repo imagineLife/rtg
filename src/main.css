@@ -98,20 +98,20 @@ body {
 	Balloon
 */
 
-.ballon-enter{
+.balloon-enter{
 	opacity: 0
 }
 
-.ballon-enter-active{
+.balloon-enter-active{
 	opacity: 1;
 	transition: opacity var(--timeout);
 }
 
-.ballon-exit{
+.balloon-exit{
 	opacity: 1;
 }
 
-.ballon-exit-active{
+.balloon-exit-active{
 	opacity: 0;
 	transition: opacity var(--timeout);
 }
@@ -120,7 +120,7 @@ body {
 	balloon-appear
 */
 
-.ballon-appear-enter{
+.balloon-appear-enter{
 	top: var(--menu-starting-top);
 	width: var(--toggler-width);
 	max-height: var(--toggler-height);
@@ -128,7 +128,7 @@ body {
 	background-color: var(--toggler-bg-color);
 }
 
-.ballon-appear-enter-active{
+.balloon-appear-enter-active{
 	top: var(--menu-ending-top);
 	width: var(--menu-width);
 	max-height: var(--menu-max-height);
@@ -137,7 +137,7 @@ body {
 	transition: all var(--timeout);
 }
 
-.ballon-appear-exit{
+.balloon-appear-exit{
 	top: var(--menu-ending-top);
 	width: var(--menu-width);
 	max-height: var(--menu-max-height);
@@ -145,7 +145,7 @@ body {
 	background-color: var(--menu-bg-color);
 }
 
-.ballon-appear-exit-active{
+.balloon-appear-exit-active{
 	top: var(--menu-starting-top);
 	width: var(--toggler-width);
 	max-height: var(--toggler-height);
@@ -158,27 +158,68 @@ body {
 	balloon-ltr-appear
 */
 
-.ballon-ltr-enter{
+.balloon-ltr-enter{
 	transform: translate(-300px,0);
 	background-color: white;
 	color: white;
 }
 
-.ballon-ltr-enter-active{
+.balloon-ltr-enter-active{
 	transform: translate(0,0);
 	color: var(--fade-to-color);
 	background-color: var(--menu-bg-color);
 	transition: all var(--timeout);
 }
 
-.ballon-ltr-exit{
+.balloon-ltr-exit{
 	transform: translate(0,0);
 	background-color: var(--menu-bg-color);
 }
 
-.ballon-ltr-exit-active{
+.balloon-ltr-exit-active{
 	transform: translate(1200px,0);
 	color: white;
 	background-color: white;
 	transition: all var(--timeout);
+}
+
+
+/*
+	appears on load automagically without button click
+*/
+
+.balloon-show-init-enter,
+.balloon-show-init-appear {
+  top: var(--menu-starting-top);
+  width: var(--toggler-width);
+  max-height: var(--toggler-height);
+  color: var(--fade-from-color);
+  background-color: var(--toggler-bg-color);
+}
+
+.balloon-show-init-enter-active,
+.balloon-show-init-appear-active {
+  top: var(--menu-ending-top);
+  width: var(--menu-width);
+  max-height: var(--menu-max-height);
+  color: var(--fade-to-color);
+  background-color: var(--menu-bg-color);
+  transition: all var(--timeout);
+}
+
+.balloon-show-init-exit {
+  top: var(--menu-ending-top);
+  width: var(--menu-width);
+  max-height: var(--menu-max-height);
+  color: var(--fade-to-color);
+  background-color: var(--menu-bg-color);
+}
+
+.balloon-show-init-exit-active {
+  top: var(--menu-starting-top);
+  width: var(--toggler-width);
+  max-height: var(--toggler-height);
+  color: var(--fade-from-color);
+  background-color: var(--toggler-bg-color);
+  transition: all var(--timeout);
 }

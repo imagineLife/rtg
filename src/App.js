@@ -11,7 +11,10 @@ import cx from 'classnames';
 import './main.css';
 
 function App(props){
-  let [showBalloon, setShowBalloon] = React.useState(false)
+	//use this to hide on start 
+  // let [showBalloon, setShowBalloon] = React.useState(false)
+
+  let [showBalloon, setShowBalloon] = React.useState(true)
 
   const toggle = () => setShowBalloon(!showBalloon);
 
@@ -26,6 +29,7 @@ function App(props){
           Menu
         </button>
         {/*
+        	CSSTransition props
     		-in is the condition, similar to 
     			{showBallon && ...}
 			- timeout 
@@ -36,6 +40,8 @@ function App(props){
 			- unmountOnExit 
 				removes from dom when left the dom
 			- appear
+				gives new classnamees on initial load:
+
 		
 			CLASSNAMES:
 				ballon:
@@ -52,8 +58,9 @@ function App(props){
         <CSSTransition
         	in={showBalloon}
         	timeout={1550}
-        	classNames="ballon-ltr"
-        	unmountOnExit>
+        	classNames="balloon-show-init"
+        	unmountOnExit
+        	appear>
           <div className="menu">
             <ul className="list">
               <li className="list-item">Home</li>
