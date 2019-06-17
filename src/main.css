@@ -92,17 +92,19 @@ body {
 */
 
 .ballon-enter{
-
+	opacity: 0
 }
 
 .ballon-enter-active{
-
+	opacity: 1;
+	transition: opacity var(--timeout);
 }
 
 .ballon-exit{
-
+	opacity: 1;
 }
 
 .ballon-exit-active{
-
+	opacity: 0;
+	transition: opacity var(--timeout);
 }
