@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
 import cx from 'classnames';
-import './main.css';
+import './index.css';
 
 class App extends Component {
   state = {
@@ -25,7 +25,12 @@ class App extends Component {
         >
           Menu
         </button>
-        {this.state.showBalloon && (
+        <CSSTransition
+          in={this.state.showBalloon}
+          timeout={350}
+          classNames="balloon"
+          unmountOnExit
+        >
           <div className="menu">
             <ul className="list">
               <li className="list-item">Home</li>
@@ -34,7 +39,7 @@ class App extends Component {
               <li className="list-item">Sign out</li>
             </ul>
           </div>
-        )}
+        </CSSTransition>
       </div>
     );
   }

@@ -13,10 +13,6 @@
   --timeout: 350ms;
 }
 
-body {
-  font-family: sans-serif;
-}
-
 .container {
   position: relative;
 }
@@ -57,4 +53,38 @@ body {
 
 .list-item {
   padding: 5px 0;
+}
+
+.balloon-enter {
+  top: var(--menu-starting-top);
+  width: var(--toggler-width);
+  max-height: var(--toggler-height);
+  color: var(--fade-from-color);
+  background-color: var(--toggler-bg-color);
+}
+
+.balloon-enter-active {
+  top: var(--menu-ending-top);
+  width: var(--menu-width);
+  max-height: var(--menu-max-height);
+  color: var(--fade-to-color);
+  background-color: var(--menu-bg-color);
+  transition: all var(--timeout);
+}
+
+.balloon-exit {
+  top: var(--menu-ending-top);
+  width: var(--menu-width);
+  max-height: var(--menu-max-height);
+  color: var(--fade-to-color);
+  background-color: var(--menu-bg-color);
+}
+
+.balloon-exit-active {
+  top: var(--menu-starting-top);
+  width: var(--toggler-width);
+  max-height: var(--toggler-height);
+  color: var(--fade-from-color);
+  background-color: var(--toggler-bg-color);
+  transition: all var(--timeout);
 }
