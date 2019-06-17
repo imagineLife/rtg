@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
 import cx from 'classnames';
 import './main.css';
 
