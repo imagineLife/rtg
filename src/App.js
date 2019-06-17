@@ -14,6 +14,25 @@ function App(props){
 	//use this to hide on start 
   // let [showBalloon, setShowBalloon] = React.useState(false)
 
+  let [listItems, setListItems] = React.useState([
+  	{
+  		txt: 'home',
+  		highlighted: false
+  	},
+  	{
+  		txt: 'profile',
+  		highlighted: false
+  	},
+  	{
+  		txt: 'favourites',
+  		highlighted: false
+  	},
+  	{
+  		txt: 'sign-out',
+  		highlighted: false
+  	}
+  ]);
+
   let [showBalloon, setShowBalloon] = React.useState(true)
 
   const toggle = () => setShowBalloon(!showBalloon);
@@ -72,10 +91,9 @@ function App(props){
         	onExited={() => console.log('onExited')}>
           <div className="menu">
             <ul className="list">
-              <li className="list-item">Home</li>
-              <li className="list-item">Profile</li>
-              <li className="list-item">Favorites</li>
-              <li className="list-item">Sign out</li>
+              {listItems && listItems.map((l, ind) => {
+              	return <li key={`${l.txt}${l.ind}`} className="list-item">{l.txt}</li>
+              })}
             </ul>
           </div>
         </CSSTransition>
