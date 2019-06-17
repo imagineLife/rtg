@@ -38,7 +38,7 @@ function App(props){
   const toggle = () => setShowBalloon(!showBalloon);
 
   const toggleSelectedMenuItem =() => {
-  	console.log('tiggling selecte menu item');
+  	console.log('tiggling selected menu item');
   	setListItems([
 	  	{
 	  		txt: 'home',
@@ -113,7 +113,9 @@ function App(props){
           <div className="menu">
             <ul className="list">
               {listItems && listItems.map((l, ind) => {
-              	return <li key={`${l.txt}${l.ind}`} className="list-item">{l.txt}</li>
+              	return <li key={`${l.txt}${l.ind}`} className={cx("list-item", {
+              		'list-item--active' : l.highlighted
+              	})}>{l.txt}</li>
               })}
             </ul>
           </div>
