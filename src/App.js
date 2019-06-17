@@ -42,11 +42,12 @@ class App extends Component {
 			CLASSNAMES:
 				ballon == simple appear/hide
 				ballon-appear == more 
+				balloon-ltr == left-to-right animation
 		*/}
         <CSSTransition
         	in={this.state.showBalloon}
         	timeout={1550}
-        	classNames="ballon-appear"
+        	classNames="ballon-ltr"
         	unmountOnExit>
           <div className="menu">
             <ul className="list">

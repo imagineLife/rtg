@@ -89,6 +89,9 @@ body {
 		-exit-active
 			fires on next tick after exit
 			HERE can be the transition
+
+	ENTER-ACTIVE && EXIT should be the same
+	EXIT-ACTIVE && ENTER should be the same
 */
 
 /*
@@ -148,5 +151,34 @@ body {
 	max-height: var(--toggler-height);
 	color: var(--fade-from-color);
 	background-color: var(--toggler-bg-color);
+	transition: all var(--timeout);
+}
+
+/*
+	balloon-ltr-appear
+*/
+
+.ballon-ltr-enter{
+	transform: translate(-300px,0);
+	background-color: white;
+	color: white;
+}
+
+.ballon-ltr-enter-active{
+	transform: translate(0,0);
+	color: var(--fade-to-color);
+	background-color: var(--menu-bg-color);
+	transition: all var(--timeout);
+}
+
+.ballon-ltr-exit{
+	transform: translate(0,0);
+	background-color: var(--menu-bg-color);
+}
+
+.ballon-ltr-exit-active{
+	transform: translate(1200px,0);
+	color: white;
+	background-color: white;
 	transition: all var(--timeout);
 }
