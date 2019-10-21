@@ -15,44 +15,41 @@ function CirclesApp(props){
   let [showBalloon, setShowBalloon] = React.useState(true)
 
   let [circles, setCircles] = React.useState([
-      {cx: 50, cy: 50, fill: 'orange', r: '8'},
-      {cx: 75, cy: 150, fill: 'orange', r: '8'},
-      {cx: 125, cy: 75, fill: 'orange', r: '8'},
-      {cx: 300, cy: 200, fill: 'orange', r: '8'},
+      {cx: 50, cy: 50, fill: 'orange', r: '35'},
+      {cx: 75, cy: 150, fill: 'orange', r: '8'}
     ])
 
   let [rtgStyles] = React.useState({
-    entering: { transition: 'all 1550ms', fillOpacity: 0, r: 0 },
-    entered:  { transition: 'all 1550ms', fillOpacity: 1 },
-    exiting:  { transition: 'all 1550ms', fillOpacity: 1 },
-    exited:  { transition: 'all 1550ms', fillOpacity: 0, r: 0 }
+    entering: { transition: 'all 500ms', fillOpacity: 0, fill: 'white', r: 0 },
+    entered:  { transition: 'all 500ms' },
+    exiting:  { transition: 'all 500ms', fillOpacity: 0 }
   });
 
-  console.log('rtgStyles')
-  console.log(rtgStyles)
+  // console.log('rtgStyles')
+  // console.log(rtgStyles)
   
 
-  const toggle = () => {
+  function toggle(){
     let newView = showBalloon == true ? false : true;
     let fourcs = [
-      {cx: 50, cy: 50, fill: 'orange', r: '8'},
-      {cx: 75, cy: 150, fill: 'orange', r: '8'},
-      {cx: 125, cy: 75, fill: 'orange', r: '8'},
-      {cx: 300, cy: 200, fill: 'orange', r: '8'},
+      {cx: 150, cy: 250, fill: 'orange', r: '8'}
     ]
 
     let twoCs = [
-      {cx: 75, cy: 150, fill: 'orange', r: '8'},
-      {cx: 300, cy: 200, fill: 'orange', r: '8'},
+      {cx: 50, cy: 50, fill: 'orange', r: '35'},
+      {cx: 75, cy: 150, fill: 'orange', r: '8'}
     ]
 
-    let whichToShow = Object.keys(circles).length > 2 ? twoCs : fourcs
+    let whichToShow = circles.length < 1 || circles[0].cx == 50 ? fourcs : twoCs;
+    // let whichToShow = Object.keys(circles).length > 2 ? twoCs : fourcs
     setShowBalloon(newView)
     setCircles(whichToShow)
   };
 
   console.log('showBalloon')
   console.log(showBalloon)
+  console.log('circles')
+  console.log(circles)
   
     return (
       <div className="container">
@@ -89,20 +86,32 @@ function CirclesApp(props){
         
         <svg width={750} height={400} className="svg-wrapper">
           <TransitionGroup className="rtg" component="g">
-          {circles.map((c, idx) => (
+          {circles && circles.length > 0 && circles.map((c, idx) => (
             <Transition
+              in={showBalloon}
               key={`circle-${idx}`}
-              timeout={1550}
+              timeout={500}
               classNames="rtg-circles"
               unmountOnExit
-              onEntering={() => console.log('entering')}
-              onEntered={() => console.log('entered')}
-              onExiting={() => console.log('exiting')}
-              onExited={() => console.log('exited')}
+              mountOnEnter
+              appear={true}
+              exit
             >
-              {state => (
-                <circle {...circles[idx]} style={{...rtgStyles}}/>
-              )}
+              {state => {
+                console.log('%c ---START STATE ---', 'background-color: steelblue; color: white;')
+                
+                console.log('state')
+                console.log(state)
+                let thisStyle = rtgStyles[state]
+                console.log('thisStyle')
+                console.log(thisStyle)
+                
+                console.log('%c - - - - -', 'background-color: steelblue; color: black;')
+                
+                return (
+                  <circle {...circles[idx]} style={thisStyle}/>
+                )
+              }}
             </Transition>
           ))}
           </TransitionGroup>
