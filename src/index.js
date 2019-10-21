@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './main.css';
 import App from './App';
+import CirclesApp from './CirclesApp';
 
 ReactDOM.render(
-  <App />,
+  <CirclesApp />,
   document.getElementById('app')
 );

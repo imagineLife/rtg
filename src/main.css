@@ -228,3 +228,8 @@ body {
   background-color: var(--toggler-bg-color);
   transition: all var(--timeout);
 }
+
+.rtg-circles-entering{ transition: 'all 1550ms'; fillOpacity: 0; r: 0 };
+.rtg-circles-entered{ transition: 'all 1550ms'; fillOpacity: 1 };
+.rtg-circles-exiting{ transition: 'all 1550ms'; fillOpacity: 1 };
+.rtg-circles-exited{ transition: 'all 1550ms'; fillOpacity: 0; r: 0 };

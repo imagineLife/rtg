@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './main.css'
 
 /*
-	A component
-	allows CSSTransition to elements entering / exiting the dom
+	CSSTransition is a component:
+	allowing CSS transitions to child elements entering / exiting the dom
 */
 import { CSSTransition } from 'react-transition-group';
 import cx from 'classnames';
@@ -35,7 +35,10 @@ function App(props){
 
   let [showBalloon, setShowBalloon] = React.useState(true)
 
-  const toggle = () => setShowBalloon(!showBalloon);
+  const toggle = () => {
+    let newView = showBalloon == true ? false : true;
+    setShowBalloon(newView)
+  };
 
   const toggleSelectedMenuItem =() => {
   	console.log('tiggling selected menu item');
@@ -58,6 +61,10 @@ function App(props){
 	  	}
 	])
   }
+
+  console.log('showBalloon')
+  console.log(showBalloon)
+  
     return (
       <div className="container">
         <button
@@ -70,8 +77,8 @@ function App(props){
         </button>
         {/*
         	CSSTransition props
-    		-in is the condition, similar to 
-    			{showBallon && ...}
+    	-in is the condition, similar to 
+    		{showBallon && ...}
 			- timeout 
 				is REQUIRED, in ms
 			- classnames 
@@ -101,15 +108,10 @@ function App(props){
         <CSSTransition
         	in={showBalloon}
         	timeout={1550}
-        	classNames="balloon-show-init"
-        	unmountOnExit
-        	appear
+        	classNames="balloon-ltr"
         	onEnter={() => console.log('onEnter')}
         	onEntering={() => console.log('onEntering')}
-        	onEntered={toggleSelectedMenuItem}
-        	onExit={toggleSelectedMenuItem}
-        	onExiting={() => console.log('onExiting')}
-        	onExited={() => console.log('onExited')}>
+          unmountOnExit>
           <div className="menu">
             <ul className="list">
               {listItems && listItems.map((l, ind) => {
