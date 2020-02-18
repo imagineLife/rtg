@@ -7,6 +7,8 @@ import {
   Redirect
 } from "react-router-dom";
 
+import SingleComponentShowHide from './../SingleCompShHd'
+
 function Home() {
   return <h2>Home</h2>;
 }
@@ -46,10 +48,10 @@ const Mpa = () => (
           <Route path="/users">
             <Users />
           </Route>
-          <Route path="/">
-            <Home />
+          <Route path="/singleComponentShowHide">
+            <SingleComponentShowHide />
           </Route>
-          <Redirect from='/*' to='/' />
+          <Redirect push from='/*' to='/singleComponentShowHide' />
         </Switch>
       </div>
     </Router>
