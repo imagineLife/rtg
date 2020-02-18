@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 
 import SingleComponentShowHide from './../SingleCompShHd'
+import SingleWithAppear from './../SingleWithAppear'
 
 function Home() {
   return <h2>Home</h2>;
@@ -21,21 +22,22 @@ function Users() {
   return <h2>Users</h2>;
 }
 
+const links = [
+  {to: '/singleComponentShowHide', str: 'Single-Component Show/Hide'},
+  {to: '/singleWithAppear', str: 'Single-Component WITH appear'},
+  {to: '/users', str: 'Users'}
+]
 
 const Mpa = () => (
   <Router>
       <div>
         <nav>
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
+            {links.map((l,i) =>(
+              <li key={`nav-link-${i}`}>
+                <Link to={l.to}>{l.str}</Link>
+              </li>
+              ))}
           </ul>
         </nav>
 
@@ -51,6 +53,11 @@ const Mpa = () => (
           <Route path="/singleComponentShowHide">
             <SingleComponentShowHide />
           </Route>
+
+          <Route path="/singleWithAppear">
+            <SingleWithAppear />
+          </Route>
+
           <Redirect push from='/*' to='/singleComponentShowHide' />
         </Switch>
       </div>
