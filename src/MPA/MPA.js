@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 
 function Home() {
@@ -48,6 +49,7 @@ const Mpa = () => (
           <Route path="/">
             <Home />
           </Route>
+          <Redirect from='/*' to='/' />
         </Switch>
       </div>
     </Router>
