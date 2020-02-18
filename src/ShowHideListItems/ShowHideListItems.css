@@ -1,0 +1,37 @@
+:root{
+	--timeout: 500ms;
+	--li-max-height: 18px;
+}
+
+.favorite{
+	border: 1px solid green;
+	border-radius: 3px;
+	padding: 5px 3px;
+}
+
+
+.fade-enter{
+	height: 0;
+	opacity: 0;
+	width: 0;
+}
+
+.fade-enter-active{
+	height: var(--li-max-height);
+	opacity: 1;
+	transition: all var(--timeout);	
+	width: 100%
+}
+
+.fade-exit{
+	height: var(--li-max-height);
+	opacity: 1;
+	width: 100%	
+}
+
+.fade-exit-active{
+	height: 0;
+	opacity: 0;
+	transition: all var(--timeout);
+	width: 0;
+}

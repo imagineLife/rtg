@@ -9,6 +9,8 @@ import {
 
 import SingleComponentShowHide from './../SingleCompShHd'
 import SingleWithAppear from './../SingleWithAppear'
+import PlusLifecycleProps from './../PlusLifecycleProps'
+import ShowHideListItems from './../ShowHideListItems'
 
 function Home() {
   return <h2>Home</h2>;
@@ -32,6 +34,16 @@ const links = [
     to: '/singleWithAppear',
     str: 'Single-Component WITH appear',
     comp: SingleWithAppear
+  },
+  {
+    to: '/plusLifecycleProps',
+    str: 'Single-Component PLUS lifecycle props',
+    comp: PlusLifecycleProps
+  },
+  {
+    to: '/showHideListItems',
+    str: 'Show & Hide List Items',
+    comp: ShowHideListItems
   }
 ]
 
