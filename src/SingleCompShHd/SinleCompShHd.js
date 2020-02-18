@@ -1,48 +1,48 @@
-import React, { Component } from 'react';
-import { CSSTransition } from 'react-transition-group';
+/*
+  HERE
+  single element shows/hides (menu)
+  Wrapped in CSSTransition
+
+*/
+
+import React, { Component, useState } from 'react';
+import { CSSTransition as CT } from 'react-transition-group';
 import cx from 'classnames';
 import './SingleCompShowHide.css';
 
-class SingleCompShowHide extends Component {
-  state = {
-    showBalloon: false,
-  };
+const SingleCompShowHide = () => {
+  const [showBalloon, setShowBalloon] = useState(false);
 
-  toggle = () => {
-    this.setState(prevState => ({
-      showBalloon: !prevState.showBalloon,
-    }));
-  };
+  const toggle = () => setShowBalloon(!showBalloon);
 
-  render() {
-    return (
-      <div className="container">
-        <button
-          className={cx('toggler', {
-            'toggler--active': this.state.showBalloon,
-          })}
-          onClick={this.toggle}
-        >
-          Menu
-        </button>
-        <CSSTransition
-          in={this.state.showBalloon}
-          timeout={350}
-          classNames="balloon"
-          unmountOnExit
-        >
-          <div className="menu">
-            <ul className="list">
-              <li className="list-item">Home</li>
-              <li className="list-item">Profile</li>
-              <li className="list-item">Favorites</li>
-              <li className="list-item">Sign out</li>
-            </ul>
-          </div>
-        </CSSTransition>
-      </div>
-    );
-  }
+
+  return (
+    <div className="container">
+      <button
+        className={cx('toggler', {
+          'toggler--active': showBalloon,
+        })}
+        onClick={toggle}
+      >
+        Menu
+      </button>
+      <CT
+        in={showBalloon}
+        timeout={350}
+        classNames="balloon"
+        unmountOnExit
+      >
+        <div className="menu">
+          <ul className="list">
+            <li className="list-item">Home</li>
+            <li className="list-item">Profile</li>
+            <li className="list-item">Favorites</li>
+            <li className="list-item">Sign out</li>
+          </ul>
+        </div>
+      </CT>
+    </div>
+  );
 }
 
 export default SingleCompShowHide;
