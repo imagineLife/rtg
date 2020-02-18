@@ -23,41 +23,47 @@ function Users() {
 }
 
 const links = [
-  {to: '/singleComponentShowHide', str: 'Single-Component Show/Hide'},
-  {to: '/singleWithAppear', str: 'Single-Component WITH appear'},
-  {to: '/users', str: 'Users'}
+  {
+    to: '/singleComponentShowHide', 
+    str: 'Single-Component Show/Hide',
+    comp: SingleComponentShowHide
+  },
+  {
+    to: '/singleWithAppear',
+    str: 'Single-Component WITH appear',
+    comp: SingleWithAppear
+  }
 ]
+
+let theseLinks = [];
+let theseRoutes = [];
+
+links.forEach((l,i) => {
+  theseLinks.push(<li key={`nav-link-${i}`}>
+    <Link to={l.to}>{l.str}</Link>
+  </li>)
+
+  let ThisComp = l.comp
+  theseRoutes.push(<Route 
+    key={`nav-route-${i}`}
+    path={l.to}>
+      <ThisComp />
+    </Route>)
+})
 
 const Mpa = () => (
   <Router>
       <div>
         <nav>
           <ul>
-            {links.map((l,i) =>(
-              <li key={`nav-link-${i}`}>
-                <Link to={l.to}>{l.str}</Link>
-              </li>
-              ))}
+            {theseLinks}
           </ul>
         </nav>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/singleComponentShowHide">
-            <SingleComponentShowHide />
-          </Route>
-
-          <Route path="/singleWithAppear">
-            <SingleWithAppear />
-          </Route>
-
+          {theseRoutes}
           <Redirect push from='/*' to='/singleComponentShowHide' />
         </Switch>
       </div>
