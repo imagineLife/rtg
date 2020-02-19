@@ -46,23 +46,23 @@ const ShowHideListItems = () => {
 				))}
 			</ul>
 
-		{/* Favorites List */}
-		<div className="favorites">
-			<p> My Favs</p>
-			<TG>
-				{favs.map(({id,name}) => (
-					<CT
-						timeout={500}
-						classNames="fade"
-						key={id}
-					>
-						<div className="favorite">
-							{name}
-						</div>
-					</CT>
-				))}
-			</TG>
-		</div>
+			{/* Favorites List */}
+			<div className="favorites">
+				<p className="fav-title"> My Favs</p>
+				<TG className="transition-wrapper">
+					{favs.map(({id,name}) => (
+						<CT
+							timeout={500}
+							classNames="fade"
+							key={id}
+						>
+							<div className="favorite">
+								{name}
+							</div>
+						</CT>
+					))}
+				</TG>
+			</div>
 	</div>
 	)
 };
