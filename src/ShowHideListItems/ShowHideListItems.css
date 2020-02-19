@@ -1,14 +1,35 @@
+* {
+	box-sizing: border-box;
+}
+
 :root{
 	--timeout: 500ms;
-	--li-max-height: 18px;
+	--font-height: 16px;
+	--font-padding: 5px;
+}
+
+.ingredients, .favorites{
+	width: 50%;
+	display: inline-block;
+	float: left;
 }
 
 .favorite{
-	border: 1px solid green;
+	font-size: var(--font-height);
+	background: green;
+	color: white;
 	border-radius: 3px;
-	padding: 5px 3px;
+	padding: var(--font-padding) 3px;
+	margin: 0 0 5px 0;
 }
 
+.fav-title{
+	margin: 0 0 5px 0;
+}
+
+.transition-wrapper{
+	padding: 0 15px;
+}
 
 .fade-enter{
 	height: 0;
@@ -17,14 +38,14 @@
 }
 
 .fade-enter-active{
-	height: var(--li-max-height);
+	height: calc(var(--font-height) + var(--font-padding) + var(--font-padding));
 	opacity: 1;
 	transition: all var(--timeout);	
 	width: 100%
 }
 
 .fade-exit{
-	height: var(--li-max-height);
+	height: calc(var(--font-height) + var(--font-padding) + var(--font-padding));
 	opacity: 1;
 	width: 100%	
 }
@@ -34,4 +55,6 @@
 	opacity: 0;
 	transition: all var(--timeout);
 	width: 0;
+	padding: 0;
+	margin: 0;
 }
